@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: facedetectormqtt
+spec:
+  selector:
+    matchLabels:
+      app: facedetectormqtt
+  replicas: 1 # tells deployment to run 1 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: facedetectormqtt
+    spec:
+      containers:
+      - name: facedetectormqtt
+        securityContext:
+          privileged: true
+        image: rimjae14/facedetector_mqtt
